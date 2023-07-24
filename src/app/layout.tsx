@@ -1,7 +1,7 @@
 import { ReduxProvider } from '@/redux/provider'
-import './globals.css'
 import type { Metadata } from 'next'
 import { Comfortaa } from 'next/font/google'
+import '../styles/globals.css'
 
 const inter = Comfortaa({ subsets: ['latin'] })
 

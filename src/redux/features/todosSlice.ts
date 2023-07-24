@@ -1,20 +1,9 @@
 import { createSlice, PayloadAction, AnyAction, ActionReducerMapBuilder } from "@reduxjs/toolkit";
 import { addTodo, deleteTodo, fetchTodos, toggleChecked } from "./operations";
+import { todo } from "node:test";
+import { ITodo, ITodosState } from "@/types/todo";
 
-interface Todo {
-  id: string,
-  title: string,
-  description: string,
-  checked: boolean,
-}
-
-interface TodosState {
-  items: Todo[],
-  isLoading: boolean,
-  error: string | null,
-};
-
-const initialState: TodosState = {
+const initialState: ITodosState = {
   items: [],
   isLoading: false,
   error: null,
@@ -32,9 +21,9 @@ const todosSlice = createSlice({
   name: "todos",
   initialState,
   reducers: {},
-  extraReducers: (builder: ActionReducerMapBuilder<TodosState>) =>
+  extraReducers: (builder: ActionReducerMapBuilder<ITodosState>) =>
     builder
-      .addCase(fetchTodos.fulfilled, (state, action: PayloadAction<Todo[]>) => {
+      .addCase(fetchTodos.fulfilled, (state, action: PayloadAction<ITodo[]>) => {
         state.isLoading = false;
         state.error = null;
         state.items = action.payload;
@@ -52,9 +41,11 @@ const todosSlice = createSlice({
           toggledTodo.checked = !toggledTodo.checked;
         }
       })
-      .addCase(deleteTodo.fulfilled, (state, payload) => {
+      .addCase(deleteTodo.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
+        const index = state.items.findIndex(todo => todo.id === action.payload);
+        state.items.splice(index, 1);
 
       })
       .addMatcher(isError, (state, action: PayloadAction<string>) => {
