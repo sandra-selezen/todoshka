@@ -10,3 +10,8 @@ export interface ITodosState {
   isLoading: boolean,
   error: string | null,
 };
+
+export interface INewTodo {
+  title: string;
+  description: string;
+}

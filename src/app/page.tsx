@@ -1,7 +1,7 @@
 "use client";
 
 import Navbar from "@/components/Navbar";
-import { deleteTodo, fetchTodos, toggleChecked } from "@/redux/features/operations";
+import { addTodo, deleteTodo, fetchTodos, toggleChecked } from "@/redux/features/operations";
 import { AppDispatch, useAppSelector } from "@/redux/store";
 import { ITodo } from "@/types/todo";
 import { useEffect } from "react";
@@ -17,12 +17,26 @@ export default function Home() {
     dispatch(fetchTodos());
   }, [dispatch]);
 
+  const handleSubmit = (event: any) => {
+    event.preventDefault();
+    const title = event.target.title.value;
+    const description = event.target.description.value;
+    console.log({ title, description });
+    const data = { title, description };
+    dispatch(addTodo(data));
+  }
+
   return (
     <>
       <Navbar />
       <main className="flex min-h-screen flex-col items-center justify-between p-24">
         <h1>TODO application</h1>
         {isLoadind && <h2>Loading...</h2>}
+        <form onSubmit={handleSubmit}>
+          <input name="title" className="border-black border-2" />
+          <textarea name="description" className="border-black border-2"></textarea>
+          <button type="submit" className="border-black border-2">Add new todo</button>
+        </form>
         <ul>
           {todos.map(todo => (
             <li key={todo._id}>

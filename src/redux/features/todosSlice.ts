@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction, AnyAction, ActionReducerMapBuilder } from "@reduxjs/toolkit";
 import { addTodo, deleteTodo, fetchTodos, toggleChecked } from "./operations";
-import { todo } from "node:test";
 import { ITodo, ITodosState } from "@/types/todo";
 
 const initialState: ITodosState = {

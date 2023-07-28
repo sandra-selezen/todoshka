@@ -1,4 +1,4 @@
-import { ITodo } from "@/types/todo";
+import { ITodo, INewTodo } from "@/types/todo";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
@@ -18,7 +18,7 @@ export const fetchTodos = createAsyncThunk<ITodo[], void, { rejectValue: string 
   },
 );
 
-export const addTodo = createAsyncThunk<ITodo, ITodo, { rejectValue: string }>(
+export const addTodo = createAsyncThunk<ITodo, INewTodo, { rejectValue: string }>(
   "todos/addTodo",
   async (todo, thunkAPI) => {
     try {
