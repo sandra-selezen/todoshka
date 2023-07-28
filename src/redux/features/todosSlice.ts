@@ -36,7 +36,7 @@ const todosSlice = createSlice({
       .addCase(toggleChecked.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        const toggledTodo = state.items.find(todo => todo.id === action.payload.id);
+        const toggledTodo = state.items.find(todo => todo._id === action.payload._id);
         if (toggledTodo) {
           toggledTodo.checked = !toggledTodo.checked;
         }
@@ -44,7 +44,7 @@ const todosSlice = createSlice({
       .addCase(deleteTodo.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        const index = state.items.findIndex(todo => todo.id === action.payload);
+        const index = state.items.findIndex(todo => todo._id === action.payload);
         state.items.splice(index, 1);
 
       })

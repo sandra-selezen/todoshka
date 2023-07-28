@@ -39,7 +39,7 @@ export const toggleChecked = createAsyncThunk<ITodo, ITodo, { rejectValue: strin
     }
 
     try {
-      const response = await axios.put(`/todos/${todo.id}`, {
+      const response = await axios.patch(`/todos/${todo._id}`, {
         checked: !todo.checked,
       });
       return response.data as ITodo;

@@ -25,11 +25,11 @@ export default function Home() {
         {isLoadind && <h2>Loading...</h2>}
         <ul>
           {todos.map(todo => (
-            <li key={todo.id}>
+            <li key={todo._id}>
               <h3>{todo.title}</h3>
               <p>{todo.description}</p>
               <input type="checkbox" checked={todo.checked} onChange={() => dispatch(toggleChecked(todo))} />
-              <button type="button" onClick={() => dispatch(deleteTodo(todo.id))}>Delete</button>
+              <button type="button" onClick={() => dispatch(deleteTodo(todo._id))}>Delete</button>
             </li>
           ))}
         </ul>
