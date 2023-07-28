@@ -2,9 +2,9 @@ import { ITodo } from "@/types/todo";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-// axios.defaults.baseURL = "https://todoshka-rest-api.onrender.com/api";
+axios.defaults.baseURL = "https://todoshka-rest-api.onrender.com/api";
 
-axios.defaults.baseURL = "https://64bd08662320b36433c75a8a.mockapi.io/api";
+// axios.defaults.baseURL = "https://64bd08662320b36433c75a8a.mockapi.io/api";
 
 export const fetchTodos = createAsyncThunk<ITodo[], void, { rejectValue: string }>(
   "todos/fetchAll",
