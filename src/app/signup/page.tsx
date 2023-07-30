@@ -4,8 +4,8 @@ import styles from '@/styles'
 
 const SignupPage = () => {
   return (
-    <div className={`${styles.formContainer}`}>
-      <h1 className={`${styles.pageTitle}`}>Create your account</h1>
+    <div className='flex flex-col py-20 items-center'>
+      <h1 className='mb-6 font-bold text-3xl'>Create your account</h1>
       <SignUpForm />
     </div>
   )

@@ -1,9 +1,13 @@
 import { ReduxProvider } from '@/redux/provider'
 import type { Metadata } from 'next'
-import { Comfortaa } from 'next/font/google'
+import { Comfortaa, Pangolin } from 'next/font/google'
 import '../styles/globals.css'
 import { Footer, Navbar } from '@/components'
 
+const pangolin = Pangolin({ 
+  weight: '400',
+  subsets: ['latin'],
+})
 const comfortaa = Comfortaa({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
