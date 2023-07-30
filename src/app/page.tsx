@@ -1,6 +1,6 @@
 "use client";
 
-import { addTodo, deleteTodo, fetchTodos, toggleChecked } from "@/redux/features/operations";
+import { addTodo, deleteTodo, fetchTodos, toggleChecked } from "@/redux/todo/operations";
 import { AppDispatch, useAppSelector } from "@/redux/store";
 import { ITodo } from "@/types/todo";
 import { useEffect } from "react";
