@@ -2,8 +2,9 @@ import { ReduxProvider } from '@/redux/provider'
 import type { Metadata } from 'next'
 import { Comfortaa } from 'next/font/google'
 import '../styles/globals.css'
+import { Footer, Navbar } from '@/components'
 
-const inter = Comfortaa({ subsets: ['latin'] })
+const comfortaa = Comfortaa({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: '📝 Todo app',
@@ -17,9 +18,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={comfortaa.className}>
         <ReduxProvider>
-          {children}
+          <Navbar />
+          <main className='min-h-screen mx-auto sm:container md:container lg:container px-6 py-8'>
+            {children}
+          </main>
+          <Footer />
         </ReduxProvider>
       </body>
     </html>
