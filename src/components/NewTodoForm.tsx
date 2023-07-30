@@ -28,7 +28,7 @@ const NewTodoForm = () => {
           <label htmlFor='title'>Title</label>
           <Field id='title' name='title' />
           <label htmlFor='description'>Description</label>
-          <Field id='description' name='description' type='textarea' />
+          <Field as='textarea' id='description' name='description' />
           <button type='submit'>Add</button>
         </Form>
       </Formik>
