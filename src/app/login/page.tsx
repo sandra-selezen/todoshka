@@ -4,8 +4,8 @@ import styles from '@/styles'
 
 const LoginPage = () => {
   return (
-    <div className={`${styles.formContainer}`}>
-      <h1 className={`${styles.pageTitle}`}>Log in to your account</h1>
+    <div className='form__container'>
+      <h1 className='page-title'>Log in to your account</h1>
       <LoginForm />
     </div>
   )
