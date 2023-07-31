@@ -1,9 +1,12 @@
 "use client";
 
+import { logIn } from "@/redux/auth/operations";
+import { AppDispatch } from "@/redux/store";
 import { loginSchema } from '@/schemes';
 import { ILoginFormValues } from '@/types/form';
-import { Formik, Form, Field } from 'formik';
+import { Formik, Form, Field, FormikHelpers } from 'formik';
 import React from 'react';
+import { useDispatch } from "react-redux";
 
 const initialValues: ILoginFormValues = {
   email: "",
@@ -11,16 +14,26 @@ const initialValues: ILoginFormValues = {
 };
 
 const LoginForm = () => {
+
+  const dispatch = useDispatch<AppDispatch>();
+
+  const handleSubmit = (
+    values: ILoginFormValues,
+    formikHelpers: FormikHelpers<ILoginFormValues>
+  ) => {
+    dispatch(logIn({
+      email: values.email,
+      password: values.password
+    }));
+
+    formikHelpers.resetForm();
+  }
+
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={loginSchema}
-      onSubmit={(values, actions) => {
-        setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
-          actions.setSubmitting(false);
-        }, 1000);
-      }}
+      onSubmit={handleSubmit}
     >
       <Form className='flex flex-col w-2/5 gap-4'>
         <label htmlFor='email' className='after:content-["*"] after:ml-0.5 after:text-red-500'>Email address</label>

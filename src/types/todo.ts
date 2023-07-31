@@ -6,9 +6,9 @@ export interface ITodo {
 };
 
 export interface ITodosState {
-  items: ITodo[],
-  isLoading: boolean,
-  error: string | null,
+  items: ITodo[];
+  isLoading: boolean;
+  error: string | null;
 };
 
 export interface INewTodo {
