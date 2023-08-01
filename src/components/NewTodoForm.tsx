@@ -7,6 +7,7 @@ import { newTodoSchema } from '@/schemes';
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from '@/redux/store';
 import { addTodo } from '@/redux/todo/operations';
+import { toast } from 'react-hot-toast';
 
 const initialValues: INewTodo = {
   title: "",
@@ -25,7 +26,7 @@ const NewTodoForm = () => {
       title: values.title,
       description: values.description
     }));
-
+    toast.success('New todo successfully added');
     formikHelpers.resetForm();
   }
 

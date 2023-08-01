@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { Comfortaa, Pangolin } from 'next/font/google'
 import '../styles/globals.css'
 import { Footer, Navbar } from '@/components'
+import { Toaster } from 'react-hot-toast'
 
 const pangolin = Pangolin({ 
   weight: '400',
@@ -29,6 +30,7 @@ export default function RootLayout({
             {children}
           </main>
           <Footer />
+          <Toaster position='top-center' />
         </ReduxProvider>
       </body>
     </html>

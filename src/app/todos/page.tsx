@@ -9,7 +9,6 @@ import { useDispatch } from 'react-redux';
 const Todos = () => {
 
   const todos = useAppSelector(state => state.todos.items);
-  const isLoadind = useAppSelector(state => state.todos.isLoading);
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
@@ -18,7 +17,6 @@ const Todos = () => {
 
   return (
     <>
-      {isLoadind && <h3>Loading...</h3>}
       <h1 className='page-title'>Todo List</h1>
       <TodoList todos={todos} />
     </>
