@@ -29,11 +29,12 @@ body {
 }
 
 .page-title {
-  margin-bottom: 1.5rem/* 24px */;
   font-size: 1.875rem/* 30px */;
   line-height: 2.25rem/* 36px */;
   font-weight: 700;
 }
+
+/* Form styles */
 
 .form__container {
   display: flex;
@@ -48,6 +49,13 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1rem/* 16px */;
+}
+
+.form__title {
+  margin-bottom: 1.5rem/* 24px */;
+  font-size: 1.875rem/* 30px */;
+  line-height: 2.25rem/* 36px */;
+  font-weight: 700;
 }
 
 .form__field {
@@ -74,6 +82,48 @@ body {
 }
 
 .form__button:hover,
-.form__button:focus {
+.form__button:focus,
+.todo__button:hover,
+.todo__button:focus {
   background-color: rgba(248,252,251,0.3);
+}
+
+/* Todo List styles */
+
+.todo__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0.625rem/* 10px */;
+  border-width: 2px;
+  border-radius: 0.75rem/* 12px */;
+  background-color: rgba(248,252,251,0.3);
+}
+
+.todo__title {
+  margin-bottom: 0.5rem; /* 8px */
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.todo__text {
+  margin-bottom: 0.5rem; /* 8px */
+}
+
+.todo__actions-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.todo__button {
+  padding-top: 0.625rem/* 10px */;
+  padding-bottom: 0.625rem/* 10px */;
+  padding-left: 0.875rem/* 14px */;
+  padding-right: 0.875rem/* 14px */;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-width: 2px;
+  border-radius: 0.75rem/* 12px */;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
